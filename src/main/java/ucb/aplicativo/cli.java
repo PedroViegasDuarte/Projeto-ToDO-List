@@ -19,8 +19,10 @@ public class cli {
             System.out.println("+================================+");
             System.out.println("1. Cadastrar uma Tarefa");
             System.out.println("2. Exibir Tarefas");
-            System.out.println("3. Concluir Tarefas");
-            System.out.println("4. Sair");
+            System.out.println("3. Atualizar Tarefas");
+            System.out.println("4. Concluir Tarefas");
+            System.out.println("5. Deletar Tarefas");
+            System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine();
@@ -36,14 +38,20 @@ public class cli {
 
                     break;
                 case 3:
-                    System.out.println("Concluindo Tarefas");
+                    System.out.println("Atualizar Tarefas");
 
 
                     break;
                 case 4:
-                    System.out.println("Saindo ....");
+                    System.out.println("COncluindo Tarefas");
 
 
+                    break;
+                case 5:
+                    System.out.println("Deletando Tarefas");
+                    break;
+                case 6:
+                    System.out.println("Saindo......");
                     break;
                 default:
                     System.out.println("Opção inválida! Escolha uma opção válida.");
@@ -53,7 +61,7 @@ public class cli {
             }
 
 
-        } while (opcao != 4);
+        } while (opcao != 6);
 
     }
 }
