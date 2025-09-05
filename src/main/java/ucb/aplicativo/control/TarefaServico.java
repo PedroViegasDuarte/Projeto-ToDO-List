@@ -14,8 +14,8 @@ public class TarefaServico {
         tarefas.add(tarefa);
         return tarefa;
     }
-public List<Tarefas> listaTarefas() {
+    public List<Tarefas> listaTarefas() {
         return tarefas;
-}
+    }
 
 }

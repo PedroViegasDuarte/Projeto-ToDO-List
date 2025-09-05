@@ -34,15 +34,14 @@ public class AppToDoList {
             switch (opcao) {
                 case 1:
                     System.out.println("Digite o titulo da tarefa: ");
-                    String titulo = scanner.next();
+                    String titulo = scanner.nextLine();
                     System.out.println("Digite o descricao da tarefa: ");
-                    String descricao = scanner.next();
+                    String descricao = scanner.nextLine();
                     tarefa.criarTarefa(titulo, descricao);
-                    System.out.println("Tarefa criada com sucesso: " + tarefa.getTitulo());
+                    System.out.println("Tarefa criada com sucesso");
 
                     break;
                 case 2:
-                    List<Tarefas> tarefas = servico.listaTarefas();
 
                     break;
                 case 3:
@@ -59,6 +58,7 @@ public class AppToDoList {
                     break;
                 case 7:
 
+                    break;
                 default:
                     System.out.println("Opção inválida");
 
