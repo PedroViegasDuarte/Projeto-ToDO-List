@@ -1,8 +1,8 @@
-package ucb.aplicativo;
+package ucb.aplicativo.view;
 
 import java.util.Scanner;
 
-public class cli {
+public class AppToDoList {
     public static void main(String[] args) {
 
         executar();
