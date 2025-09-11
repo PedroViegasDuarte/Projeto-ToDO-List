@@ -42,13 +42,28 @@ public class AppToDoList {
 
                     break;
                 case 2:
-
+                    List<Tarefas> tarefas = tarefa.listaTarefas();
+                    System.out.println("Lista de Tarefas:");
+                    for (Tarefas t : tarefas) {
+                        String status = t.isCompleta() ? "Concluida" : "Pendente";
+                        System.out.println("- " + t.getTitulo() + ": " + t.getDescricao() + " ---> " + status);
+                    }
                     break;
                 case 3:
-
+                    System.out.println("Atualizar Tarefas");
+                    System.out.println("Digite o titulo da tarefa a ser atualizada: ");
+                    String tituloAtualizar = scanner.nextLine();
+                    System.out.println("Digite a nova descrição da tarefa: ");
+                    String descricaoAtualizar = scanner.nextLine();
+                    tarefa.atualizarTarefa(tituloAtualizar, descricaoAtualizar);
+                    System.out.println("Tarefa atualizada com sucesso");
                     break;
                 case 4:
-
+                    System.out.println("Concluir Tarefas");
+                    System.out.println("Digite o titulo da tarefa a ser concluida: ");
+                    String tituloConcluir = scanner.nextLine();
+                    tarefa.concluirTarefa(tituloConcluir);
+                    System.out.println("Tarefa concluida com sucesso");
                     break;
                 case 5:
 
@@ -60,7 +75,7 @@ public class AppToDoList {
 
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("Opção invaqlida");
 
                     break;
             }

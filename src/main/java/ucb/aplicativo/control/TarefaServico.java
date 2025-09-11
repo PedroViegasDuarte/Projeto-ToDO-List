@@ -14,8 +14,26 @@ public class TarefaServico {
         tarefas.add(tarefa);
         return tarefa;
     }
+    
     public List<Tarefas> listaTarefas() {
         return tarefas;
     }
 
+    public void concluirTarefa(String titulo) {
+        for (Tarefas t : tarefas) {
+            if (t.getTitulo().equals(titulo)) {
+                t.setCompleta(true);
+                break;
+            }
+        }
+    }
+
+    public void atualizarTarefa(String titulo, String novaDescricao) {
+        for (Tarefas t : tarefas) {
+            if (t.getTitulo().equals(titulo)) {
+                t.setDescricao(novaDescricao);
+                break;
+            }
+        }
+    }
 }
