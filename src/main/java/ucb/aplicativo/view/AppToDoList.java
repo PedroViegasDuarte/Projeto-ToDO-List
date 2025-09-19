@@ -9,14 +9,11 @@ import ucb.aplicativo.model.Tarefas;
 public class AppToDoList {
     public static void main(String[] args) {
 
-
         Scanner scanner = new Scanner(System.in);
         TarefaServico tarefa = new TarefaServico();
 
-
         int opcao;
         do {
-
             System.out.println("+================================+");
             System.out.println("|           TO DO LIST           |");
             System.out.println("+================================+");
@@ -31,55 +28,81 @@ public class AppToDoList {
             opcao = scanner.nextInt();
             scanner.nextLine();
 
-            switch (opcao) {
-                case 1:
-                    System.out.println("Digite o titulo da tarefa: ");
+            switch (opcao)
+            {
+                case 1 ->
+                {
+                    System.out.print("Digite o título da tarefa: ");
                     String titulo = scanner.nextLine();
-                    System.out.println("Digite o descricao da tarefa: ");
+                    System.out.print("Digite a descrição da tarefa: ");
                     String descricao = scanner.nextLine();
                     tarefa.criarTarefa(titulo, descricao);
-                    System.out.println("Tarefa criada com sucesso");
 
-                    break;
-                case 2:
+                    System.out.println("\n---------------------------------");
+                    System.out.println("  Tarefa criada com sucesso!");
+                    System.out.println("---------------------------------\n");
+                }
+                case 2 ->
+                {
                     List<Tarefas> tarefas = tarefa.listaTarefas();
-                    System.out.println("Lista de Tarefas:");
-                    for (Tarefas t : tarefas) {
-                        String status = t.isCompleta() ? "Concluida" : "Pendente";
-                        System.out.println("- " + t.getTitulo() + ": " + t.getDescricao() + " ---> " + status);
+
+                    if (tarefas.isEmpty()) {
+                        System.out.println("\n---------------------------------");
+                        System.out.println(" Nenhuma tarefa encontrada!");
+                        System.out.println("---------------------------------\n");
+                    } else {
+                        System.out.println("\n+================================+");
+                        System.out.println("|        LISTA DE TAREFAS        |");
+                        System.out.println("+================================+");
+
+                        int index = 1;
+                        for (Tarefas t : tarefas) {
+                            String status = t.isCompleta() ? " Concluída" : " Pendente";
+                            System.out.println(index++ + ") " + t.getTitulo());
+                            System.out.println("   Descrição: " + t.getDescricao());
+                            System.out.println("   Status: " + status);
+                            System.out.println("---------------------------------");
+                        }
+                        System.out.println();
                     }
-                    break;
-                case 3:
-                    System.out.println("Atualizar Tarefas");
-                    System.out.println("Digite o titulo da tarefa a ser atualizada: ");
+                }
+                case 3 ->
+                {
+                    System.out.print("Digite o título da tarefa a ser atualizada: ");
                     String tituloAtualizar = scanner.nextLine();
-                    System.out.println("Digite a nova descrição da tarefa: ");
+                    System.out.print("Digite a nova descrição da tarefa: ");
                     String descricaoAtualizar = scanner.nextLine();
                     tarefa.atualizarTarefa(tituloAtualizar, descricaoAtualizar);
-                    System.out.println("Tarefa atualizada com sucesso");
-                    break;
-                case 4:
-                    System.out.println("Concluir Tarefas");
-                    System.out.println("Digite o titulo da tarefa a ser concluida: ");
+
+                    System.out.println("\n---------------------------------");
+                    System.out.println(" Tarefa atualizada com sucesso!");
+                    System.out.println("---------------------------------\n");
+                }
+                case 4 -> {
+                    System.out.print("Digite o título da tarefa a ser concluída: ");
                     String tituloConcluir = scanner.nextLine();
                     tarefa.concluirTarefa(tituloConcluir);
-                    System.out.println("Tarefa concluida com sucesso");
-                    break;
-                case 5:
 
-                    break;
-                case 6:
+                    System.out.println("\n---------------------------------");
+                    System.out.println(" Tarefa concluída com sucesso!");
+                    System.out.println("---------------------------------\n");
+                }
 
-                    break;
-                case 7:
+                case 5 ->
+                {
 
-                    break;
-                default:
-                    System.out.println("Opção invaqlida");
+                }
 
-                    break;
+                case 6 ->
+                {
+                    System.out.println();
+                }
+                case 7 ->
+                {
+                    System.out.println("Saindo...");
+                }
+                default -> System.out.println("Opção inválida");
             }
-
 
         } while (opcao != 7);
 
